@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 및 답변</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 20px;
+        }
+        label {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function showAnswers() {
+            var group1 = document.querySelector('input[name="group1"]:checked');
+            var group2 = document.querySelector('input[name="group2"]:checked');
+            
+            if (!group1 || !group2) {
+                alert("모든 항목을 선택해주세요.");
+                return;
+            }
+            
+            var resultDiv = document.getElementById('results');
+            resultDiv.innerHTML = "질문 코드: Q001   빈도 답변: " + group1.value + "<br>질문 코드: Q001   고통 답변: " + group2.value;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>질문 코드: Q001</h1>
+    <form>
+        <h2>빈도</h2>
+        <label><input type="radio" name="group1" value="A001"> A001</label>
+        <label><input type="radio" name="group1" value="A002"> A002</label>
+        <label><input type="radio" name="group1" value="A003"> A003</label>
+        <label><input type="radio" name="group1" value="A004"> A004</label>
+
+        <h2>고통</h2>
+        <label><input type="radio" name="group2" value="B001"> B001</label>
+        <label><input type="radio" name="group2" value="B002"> B002</label>
+        <label><input type="radio" name="group2" value="B003"> B003</label>
+        <label><input type="radio" name="group2" value="B004"> B004</label>
+
+        <br>
+        <button type="button" onclick="showAnswers()">제출</button>
+    
+        <div id="results"></div>
+    </form>
+</body>
+</html> 
